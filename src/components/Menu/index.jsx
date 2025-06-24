@@ -16,8 +16,9 @@ export const Menu = () => {
             ordered={false}
             image="http://localhost:4000/assets/cups/romano.png"
             layers={[
-              { color: '#fbdf5b', label: 'citrón' },
-              { color: '#613916', label: 'espresso' }
+                { color: '#feeeca', label: 'mléčná pěna' },
+                { color: '#fed7b0', label: 'mléko' },
+                { color: '#613916', label: 'espresso' },
             ]}
           />
         </div>
