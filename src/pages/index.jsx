@@ -7,6 +7,7 @@ import { Footer } from '../components/Footer';
 import { Gallery } from '../components/Gallery';
 import { Contact } from '../components/Contact';
 
+
 document.querySelector('#root').innerHTML = render(
   <div className="page">
     <Header />
@@ -19,3 +20,16 @@ document.querySelector('#root').innerHTML = render(
     <Footer />
   </div>
 );
+
+const navBtn = document.querySelector('.nav-btn');
+const nav = document.querySelector('.rollout-nav');
+
+navBtn.addEventListener('click', () => {
+  nav.classList.toggle('nav-closed');
+});
+
+nav.addEventListener('click', (e) => {
+  if (e.target.tagName === 'A') {
+    nav.classList.add('nav-closed');
+  }
+});

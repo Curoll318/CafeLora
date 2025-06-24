@@ -18,7 +18,7 @@ export const Contact = () => {
     <section>
       <div className="container">
         <h2>Kde nás najdete</h2>
-        <div className="contact">
+        <div id="contact" className="contact">
           <address className="contact__address">
             Na Mýtě 240<br />
             514 03 Byšky nad Jizerou<br />
