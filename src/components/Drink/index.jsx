@@ -1,9 +1,9 @@
 import { Layer } from '../Layer'; 
 import './style.css'
 
-export const Drink = ({ name, image, layers }) => {
+export const Drink = ({ id, name, image, layers, ordered }) => {
   return (
-    <div className="drink">
+   <div className={`drink ${ordered ? 'drink--selected' : ''}`}>
       <div className="drink__product">
         <div className="drink__cup">
           <img src={image} />
@@ -16,8 +16,16 @@ export const Drink = ({ name, image, layers }) => {
         </div>
       </div>
 
-      <form className="drink__controls">
-        <button className="order-btn">Objednat</button>
+     <form
+        className="drink__controls"
+        data-id={id}
+        data-ordered={ordered}
+      >
+        <button
+          className={`order-btn ${ordered ? 'order-btn--ordered' : ''}`}
+        >
+          {ordered ? 'Zrušit' : 'Objednat'}
+        </button>
       </form>
     </div>
   );

@@ -27,6 +27,38 @@ document.querySelector('#root').innerHTML = render(
   </div>
 );
 
+const forms = document.querySelectorAll('.drink__controls');
+
+  forms.forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const drinkId = form.dataset.id;
+      const wasOrdered = form.dataset.ordered === 'true';
+
+      const body = [
+        {
+          op: 'replace',
+          path: '/ordered',
+          value: !wasOrdered,
+        },
+      ];
+
+      const response = await fetch(`http://localhost:4000/api/drinks/${drinkId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      });
+
+      const result = await response.json();
+      console.log('API odpověď:', result);
+
+      window.location.reload(); 
+    });
+  });
+
 const navBtn = document.querySelector('.nav-btn');
 const nav = document.querySelector('.rollout-nav');
 
