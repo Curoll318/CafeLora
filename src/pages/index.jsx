@@ -20,6 +20,9 @@ document.querySelector('#root').innerHTML = render(
     <main>
       <Banner />
       <Menu drinks={drinks} />
+      <div className="order-link">
+       <a href="/order.html" className="btn btn--primary">Zobrazit objednávku</a>
+      </div>
       <Gallery />
       <Contact />
     </main>
